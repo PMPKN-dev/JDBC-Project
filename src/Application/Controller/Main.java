@@ -1,5 +1,7 @@
-package Application;
+package Application.Controller;
 
+import Application.SceneCtrlNamePair;
+import Application.ControllerNames;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -36,16 +38,19 @@ public class Main extends Application {
         Scene viewScene = new Scene(ViewPane,width,height);
         //endregion
 
-        scenes.add(new SceneCtrlNamePair(CreateUserScene,ControllerNames.CreateUser));
-        scenes.add(new SceneCtrlNamePair(LoginScene,ControllerNames.Login));
-        scenes.add(new SceneCtrlNamePair(RegistrationScene,ControllerNames.Registration));
-        scenes.add(new SceneCtrlNamePair(viewScene,ControllerNames.View));
+        //region adding scenes to scenes Arraylist
+        scenes.add(new SceneCtrlNamePair(CreateUserScene, ControllerNames.CreateUser));
+        scenes.add(new SceneCtrlNamePair(LoginScene, ControllerNames.Login));
+        scenes.add(new SceneCtrlNamePair(RegistrationScene, ControllerNames.Registration));
+        scenes.add(new SceneCtrlNamePair(viewScene, ControllerNames.View));
+        //endregion
 
         primaryStage.setTitle("Auto");
         primaryStage.setScene(viewScene);
         primaryStage.show();
     }
 
+    //Changes the scene based on the name input
     public void changeScene(ControllerNames sceneName){
         primaryStageHolder.setTitle(sceneName.toString());
 
