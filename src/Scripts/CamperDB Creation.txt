@@ -1,0 +1,43 @@
+CREATE DATABASE CamperDB
+GO
+use CamperDB
+
+CREATE TABLE tbl_Discount(
+	DiscountID INT PRIMARY KEY,
+	DiscountPercent float,
+	NumberOfRentalsReq INT);
+
+CREATE TABLE tbl_Week(
+	WeekID INT PRIMARY KEY);
+
+CREATE TABLE tbl_Customer(
+	CustomerID INT PRIMARY KEY,
+	Name VARCHAR(30),
+	Address VARCHAR(30),
+	PhoneNo INT,
+	NumberOfRentals INT);
+
+CREATE TABLE tbl_PriceCategory(
+	PriceCatID INT PRIMARY KEY,
+	CamperType VARCHAR(30),
+	PriceAmount FLOAT);
+
+CREATE TABLE tbl_Camper(
+	CamperID INT PRIMARY KEY,
+	PriceCatID INT,
+	FOREIGN KEY(PriceCatID) REFERENCES tbl_PriceCategory(PriceCatID));
+
+CREATE TABLE tbl_Reservations(
+	ReservationID INT PRIMARY KEY,
+	CustomerID INT,
+	FOREIGN KEY(CustomerID) REFERENCES tbl_Customer(CustomerID),
+	CamperID INT,
+	FOREIGN KEY(CamperID) REFERENCES tbl_Camper(CamperID),
+	FinalPrice FLOAT);
+
+CREATE TABLE tbl_PaymentHandler(
+	ReservationID INT
+	FOREIGN KEY(ReservationID) REFERENCES tbl_Reservations(ReservationID),
+	depositReceived FLOAT,
+	paymentReceived FLOAT,
+	reservationCancelled BIT);
