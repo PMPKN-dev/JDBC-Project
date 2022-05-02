@@ -21,19 +21,19 @@ public class Main extends Application {
         primaryStageHolder = primaryStage;
 
         //region Creating FXMLLoaders for the controllers
-        FXMLLoader CreateUserPaneLoader = new FXMLLoader(getClass().getResource("../Application/View/CreateUser.fxml"));
+        FXMLLoader CreateUserPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/CreateUser.fxml"));
         Parent CreateUserPane = CreateUserPaneLoader.load();
         Scene CreateUserScene = new Scene(CreateUserPane,width,height);
 
-        FXMLLoader LoginPaneLoader = new FXMLLoader(getClass().getResource("../Application/View/Login.fxml"));
+        FXMLLoader LoginPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Login.fxml"));
         Parent LoginPane = LoginPaneLoader.load();
         Scene LoginScene = new Scene(LoginPane,width,height);
 
-        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("../Application/View/Registration.fxml"));
+        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Registration.fxml"));
         Parent RegistrationPane = RegistrationPaneLoader.load();
         Scene RegistrationScene = new Scene(RegistrationPane,width,height);
 
-        FXMLLoader ViewPaneLoader = new FXMLLoader(getClass().getResource("../Application/View/View.fxml"));
+        FXMLLoader ViewPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/View.fxml"));
         Parent ViewPane = ViewPaneLoader.load();
         Scene viewScene = new Scene(ViewPane,width,height);
         //endregion
@@ -45,13 +45,13 @@ public class Main extends Application {
         scenes.add(new SceneCtrlNamePair(viewScene, ControllerNames.View));
         //endregion
 
-        primaryStage.setTitle("Auto");
+        primaryStage.setTitle("View");
         primaryStage.setScene(viewScene);
         primaryStage.show();
     }
 
     //Changes the scene based on the name input
-    public void changeScene(ControllerNames sceneName){
+    public static void changeScene(ControllerNames sceneName){
         primaryStageHolder.setTitle(sceneName.toString());
 
         for(SceneCtrlNamePair sceneCtrlNamePair : scenes){
