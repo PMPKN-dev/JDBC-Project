@@ -41,8 +41,8 @@ public class AdminLogin {
                 String insertedPass = passTextfield.getText();
                 if(Objects.equals(insertedUser, "management") && Objects.equals(insertedPass, "fabulous")){
                     adminResultView.setText("Login Successful. Press button to proceed");
-                    proceedButton.setOpacity(100);
-                    proceedButton.setMouseTransparent(false);
+                    proceedButton.setOpacity(100); //Makes button visible
+                    proceedButton.setMouseTransparent(false); //Makes mouse able to interact with button
                     proceedButton.setText("Proceed");
                     proceedButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                         @Override

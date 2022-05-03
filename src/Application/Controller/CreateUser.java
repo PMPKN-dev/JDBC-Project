@@ -29,6 +29,7 @@ static Connection con;
         p.setString(2,Address.getText());
         p.setInt(3, Integer.parseInt(Phone.getText()));
         p.setInt(4,0);
+        System.out.println("Database updated with info");
         p.executeUpdate();
         p.close();
         DBCon.closeCon();
