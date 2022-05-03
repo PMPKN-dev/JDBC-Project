@@ -18,6 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         primaryStageHolder = primaryStage;
 
         //region Creating FXMLLoaders for the controllers
