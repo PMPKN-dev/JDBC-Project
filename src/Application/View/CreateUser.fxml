@@ -15,7 +15,5 @@
       <Text layoutX="12.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
       <Text layoutX="11.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone #" />
       <Button layoutX="60.0" layoutY="174.0" mnemonicParsing="false" onAction="#onCreateUserClick" text="Create" />
-
-      
    </children>
 </AnchorPane>

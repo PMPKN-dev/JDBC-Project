@@ -1,12 +1,15 @@
 package Application.Controller;
 
 import Application.ControllerNames;
+import Application.DBCon;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
 
 import java.sql.DriverManager;
+
+import java.sql.Connection;
 
 public class CreateUser {
 static Connection con;
@@ -33,6 +36,13 @@ static Connection con;
 
 
 
+    }
+
+
+    public void onCreteUserClick(){
+        Connection con = DBCon.getCon();
+        //magic
+        DBCon.closeCon();
     }
 
 }

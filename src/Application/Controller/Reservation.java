@@ -3,7 +3,7 @@ package Application.Controller;
 import Application.ControllerNames;
 import javafx.fxml.FXML;
 
-public class Registration {
+public class Reservation {
 
     @FXML
     public void onCreateUserClick(){
