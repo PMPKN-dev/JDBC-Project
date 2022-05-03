@@ -7,8 +7,6 @@ import javafx.scene.control.TextField;
 
 import java.sql.*;
 
-import java.sql.DriverManager;
-
 import java.sql.Connection;
 
 public class CreateUser {
@@ -19,7 +17,7 @@ static Connection con;
 
     @FXML
     public void onBackClick(){
-        Main.changeScene(ControllerNames.Registration);
+        Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
     @FXML
     public void onCreateUserClick() throws SQLException {
@@ -32,6 +30,10 @@ static Connection con;
         p.executeUpdate();
         p.close();
         DBCon.closeCon();
+    }
+    @FXML
+    public void onBypassClick(){
+        Main.changeScene(ControllerNames.Reservation);
     }
 
 }

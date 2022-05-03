@@ -30,20 +30,25 @@ public class Main extends Application {
         Parent LoginPane = LoginPaneLoader.load();
         Scene LoginScene = new Scene(LoginPane,width,height);
 
-        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Reservation.fxml"));
+        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/ReservationLoginPrompt.fxml"));
         Parent RegistrationPane = RegistrationPaneLoader.load();
         Scene RegistrationScene = new Scene(RegistrationPane,width,height);
 
         FXMLLoader ViewPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/View.fxml"));
         Parent ViewPane = ViewPaneLoader.load();
         Scene viewScene = new Scene(ViewPane,width,height);
+
+        FXMLLoader ReservationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Reservation.fxml"));
+        Parent ReservationPane = ReservationPaneLoader.load();
+        Scene ReservationScene = new Scene(ReservationPane,width,height);
         //endregion
 
         //region adding scenes to scenes Arraylist
         scenes.add(new SceneCtrlNamePair(CreateUserScene, ControllerNames.CreateUser));
         scenes.add(new SceneCtrlNamePair(LoginScene, ControllerNames.Login));
-        scenes.add(new SceneCtrlNamePair(RegistrationScene, ControllerNames.Registration));
+        scenes.add(new SceneCtrlNamePair(RegistrationScene, ControllerNames.ReservationLoginPrompt));
         scenes.add(new SceneCtrlNamePair(viewScene, ControllerNames.View));
+        scenes.add(new SceneCtrlNamePair(ReservationScene,ControllerNames.Reservation));
         //endregion
 
         primaryStage.setTitle("View");

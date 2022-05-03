@@ -9,7 +9,7 @@ public class DBCon {
     public static Connection getCon(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=CamperDB", "sa", "goodpassword");
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=CamperDB", "sa", "1234");
         }
         catch (Exception e){
             e.printStackTrace();

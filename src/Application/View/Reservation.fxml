@@ -2,11 +2,12 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller.Reservation">
    <children>
-      <Button layoutX="200.0" layoutY="100.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
-      <Button layoutX="200.0" layoutY="130.0" mnemonicParsing="false" onAction="#onExistingUserClick" text="Existing User" />
-      <Button layoutX="200.0" layoutY="160.0" mnemonicParsing="false" onAction="#onCreateUserClick" text="Create User" />
+      <Button layoutX="274.0" layoutY="174.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+      <Text layoutX="213.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="That's all folks!" wrappingWidth="172.13671875" />
    </children>
 </AnchorPane>

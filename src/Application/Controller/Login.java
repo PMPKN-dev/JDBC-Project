@@ -6,6 +6,6 @@ import javafx.fxml.FXML;
 public class Login {
     @FXML
     public void onBackClick(){
-        Main.changeScene(ControllerNames.Registration);
+        Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
 }

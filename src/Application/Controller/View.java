@@ -9,7 +9,7 @@ public class View {
 
     @FXML
     public void onMakeReservationClick(){
-        Main.changeScene(ControllerNames.Registration);
+        Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
 
 

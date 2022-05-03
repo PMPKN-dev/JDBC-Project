@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller.CreateUser">
+<AnchorPane maxWidth="600.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller.CreateUser">
    <children>
       <Button layoutX="170.0" layoutY="174.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
       <TextField fx:id="Name" layoutX="60.0" layoutY="52.0" />
@@ -15,5 +14,6 @@
       <Text layoutX="12.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
       <Text layoutX="11.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone #" />
       <Button layoutX="60.0" layoutY="174.0" mnemonicParsing="false" onAction="#onCreateUserClick" text="Create" />
+      <Button layoutX="499.0" layoutY="139.0" mnemonicParsing="false" onAction="#onBypassClick" text="HiddenBypassLoginButton" />
    </children>
 </AnchorPane>
