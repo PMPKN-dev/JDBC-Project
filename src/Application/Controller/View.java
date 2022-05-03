@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 public class View {
 
     @FXML
-    public void onMakeRegistrationClick(){
+    public void onMakeReservationClick(){
         Main.changeScene(ControllerNames.Registration);
     }
 
