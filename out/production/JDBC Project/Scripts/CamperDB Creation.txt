@@ -3,32 +3,32 @@ GO
 use CamperDB
 
 CREATE TABLE tbl_Discount(
-	DiscountID INT PRIMARY KEY IDENTITY,
+	DiscountID INT PRIMARY KEY,
 	DiscountPercent float,
 	NumberOfRentalsReq INT);
 
 CREATE TABLE tbl_Week(
-	WeekID INT PRIMARY KEY IDENTITY);
+	WeekID INT PRIMARY KEY);
 
 CREATE TABLE tbl_Customer(
-	CustomerID INT PRIMARY KEY IDENTITY,
+	CustomerID INT PRIMARY KEY,
 	Name VARCHAR(30),
 	Address VARCHAR(30),
 	PhoneNo INT,
 	NumberOfRentals INT);
 
 CREATE TABLE tbl_PriceCategory(
-	PriceCatID INT PRIMARY KEY IDENTITY,
+	PriceCatID INT PRIMARY KEY,
 	CamperType VARCHAR(30),
 	PriceAmount FLOAT);
 
 CREATE TABLE tbl_Camper(
-	CamperID INT PRIMARY KEY IDENTITY,
+	CamperID INT PRIMARY KEY,
 	PriceCatID INT,
 	FOREIGN KEY(PriceCatID) REFERENCES tbl_PriceCategory(PriceCatID));
 
 CREATE TABLE tbl_Reservations(
-	ReservationID INT PRIMARY KEY IDENTITY,
+	ReservationID INT PRIMARY KEY,
 	CustomerID INT,
 	FOREIGN KEY(CustomerID) REFERENCES tbl_Customer(CustomerID),
 	CamperID INT,

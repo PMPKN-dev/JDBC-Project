@@ -12,5 +12,10 @@ public class View {
         Main.changeScene(ControllerNames.Registration);
     }
 
+    @FXML
+    public void onLoginAdminClick(){
+        Main.changeScene(ControllerNames.AdminLogin);
+    }
+
 
 }

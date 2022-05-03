@@ -19,6 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStageHolder = primaryStage;
+        Application.setUserAgentStylesheet(getClass().getResource("/Application/View/Style.css").toExternalForm());
 
         //region Creating FXMLLoaders for the controllers
         FXMLLoader CreateUserPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/CreateUser.fxml"));
@@ -36,6 +37,14 @@ public class Main extends Application {
         FXMLLoader ViewPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/View.fxml"));
         Parent ViewPane = ViewPaneLoader.load();
         Scene viewScene = new Scene(ViewPane,width,height);
+
+        FXMLLoader AdminLoginPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/AdminLogin.fxml"));
+        Parent AdminLoginPane = AdminLoginPaneLoader.load();
+        Scene AdminLoginScene = new Scene(AdminLoginPane,width,height);
+
+        FXMLLoader AdminEditionPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/AdminEdition.fxml"));
+        Parent AdminEditionPane = AdminEditionPaneLoader.load();
+        Scene AdminEditionScene = new Scene(AdminEditionPane,width,height);
         //endregion
 
         //region adding scenes to scenes Arraylist
@@ -43,6 +52,8 @@ public class Main extends Application {
         scenes.add(new SceneCtrlNamePair(LoginScene, ControllerNames.Login));
         scenes.add(new SceneCtrlNamePair(RegistrationScene, ControllerNames.Registration));
         scenes.add(new SceneCtrlNamePair(viewScene, ControllerNames.View));
+        scenes.add(new SceneCtrlNamePair(AdminLoginScene,ControllerNames.AdminLogin));
+        scenes.add(new SceneCtrlNamePair(AdminEditionScene,ControllerNames.AdminEdition));
         //endregion
 
         primaryStage.setTitle("View");

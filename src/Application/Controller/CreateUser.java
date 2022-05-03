@@ -13,35 +13,24 @@ import java.sql.Connection;
 
 public class CreateUser {
 static Connection con;
+    @FXML TextField Name;
+    @FXML TextField Address;
+    @FXML TextField Phone;
 
     @FXML
     public void onBackClick(){
         Main.changeScene(ControllerNames.Registration);
     }
     @FXML
-    public void onCreateUserClick(){
-        @FXML TextField Name;
-        @FXML TextField Address;
-        @FXML TextField Phone;
-        try{
-            PreparedStatement p = con.prepareStatement("insert into tbl_Customer values (?,?,?)");
-            p.setString(1,Name.getText());
-            p.setString(2,Address.getText());
-            p.setString(3,Phone.getText());
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con= DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=sample","sa","goodpassword");
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-
-
-    }
-
-
-    public void onCreteUserClick(){
+    public void onCreateUserClick() throws SQLException {
         Connection con = DBCon.getCon();
-        //magic
+        PreparedStatement p = con.prepareStatement("insert into tbl_Customer values (?,?,?,?)");
+        p.setString(1,Name.getText());
+        p.setString(2,Address.getText());
+        p.setInt(3, Integer.parseInt(Phone.getText()));
+        p.setInt(4,0);
+        p.executeUpdate();
+        p.close();
         DBCon.closeCon();
     }
 

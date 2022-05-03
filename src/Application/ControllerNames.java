@@ -4,5 +4,7 @@ public enum ControllerNames {
     View,
     Login,
     CreateUser,
-    Registration
+    Registration,
+    AdminLogin,
+    AdminEdition
 }
