@@ -13,8 +13,8 @@ public class Main extends Application {
 
     private static ArrayList<SceneCtrlNamePair> scenes = new ArrayList<>();
     private static Stage primaryStageHolder = null;
-    private int width = 600;
-    private int height = 400;
+    private static final int width = 600;
+    private static final int height = 400;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -29,7 +29,7 @@ public class Main extends Application {
         Parent LoginPane = LoginPaneLoader.load();
         Scene LoginScene = new Scene(LoginPane,width,height);
 
-        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Registration.fxml"));
+        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Reservation.fxml"));
         Parent RegistrationPane = RegistrationPaneLoader.load();
         Scene RegistrationScene = new Scene(RegistrationPane,width,height);
 
