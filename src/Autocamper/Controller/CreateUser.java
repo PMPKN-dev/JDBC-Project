@@ -2,7 +2,7 @@ package Autocamper.Controller;
 
 import Autocamper.Foundation.ControllerNames;
 import Autocamper.Foundation.DBCon;
-import Autocamper.Model.SQLHandler;
+import Autocamper.Foundation.SQLHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -12,7 +12,6 @@ import java.sql.*;
 import java.sql.Connection;
 
 public class CreateUser {
-static Connection con;
     @FXML TextField Name;
     @FXML TextField Address;
     @FXML TextField Phone;
@@ -21,14 +20,18 @@ static Connection con;
     @FXML
     public void onBackClick(){
         Main.changeScene(ControllerNames.ReservationLoginPrompt);
-
     }
+
     @FXML
     public void onCreateUserClick() throws SQLException {
         Connection con = DBCon.getCon();
-        SQLHandler.insertCustomer(con,Name.getText(),Address.getText(),Phone.getText());
+        int phoneNumber = (int) Double.parseDouble(Phone.getText());//Using Double.parseDouble cause java is bad :)
+                            // Integer.parseInt returns a hex number of sorts which is not use-able as a human being
+                            // while Double.parseDouble returns a nice decimal value
+        SQLHandler.insertCustomer(con,Name.getText(),Address.getText(),phoneNumber);
         DBCon.closeCon();
     }
+
     @FXML
     public void onBypassClick(){
         Main.changeScene(ControllerNames.Reservation);
