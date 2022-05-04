@@ -1,5 +1,6 @@
-package Application;
+package Autocamper.Model;
 
+import Autocamper.Model.ControllerNames;
 import javafx.scene.Scene;
 
 public class SceneCtrlNamePair {

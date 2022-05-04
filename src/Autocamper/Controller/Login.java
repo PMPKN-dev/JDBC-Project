@@ -1,6 +1,6 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.ControllerNames;
+import Autocamper.Model.ControllerNames;
 import javafx.fxml.FXML;
 
 public class Login {

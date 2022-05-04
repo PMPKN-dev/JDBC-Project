@@ -1,9 +1,7 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.Controller.Main;
-import Application.ControllerNames;
+import Autocamper.Model.ControllerNames;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class View {
 

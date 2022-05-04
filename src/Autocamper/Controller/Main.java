@@ -1,7 +1,7 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.SceneCtrlNamePair;
-import Application.ControllerNames;
+import Autocamper.Model.SceneCtrlNamePair;
+import Autocamper.Model.ControllerNames;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -22,23 +22,23 @@ public class Main extends Application {
         primaryStageHolder = primaryStage;
 
         //region Creating FXMLLoaders for the controllers
-        FXMLLoader CreateUserPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/CreateUser.fxml"));
+        FXMLLoader CreateUserPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/CreateUser.fxml"));
         Parent CreateUserPane = CreateUserPaneLoader.load();
         Scene CreateUserScene = new Scene(CreateUserPane,width,height);
 
-        FXMLLoader LoginPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Login.fxml"));
+        FXMLLoader LoginPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/Login.fxml"));
         Parent LoginPane = LoginPaneLoader.load();
         Scene LoginScene = new Scene(LoginPane,width,height);
 
-        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/ReservationLoginPrompt.fxml"));
+        FXMLLoader RegistrationPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/ReservationLoginPrompt.fxml"));
         Parent RegistrationPane = RegistrationPaneLoader.load();
         Scene RegistrationScene = new Scene(RegistrationPane,width,height);
 
-        FXMLLoader ViewPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/View.fxml"));
+        FXMLLoader ViewPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/View.fxml"));
         Parent ViewPane = ViewPaneLoader.load();
         Scene viewScene = new Scene(ViewPane,width,height);
 
-        FXMLLoader ReservationPaneLoader = new FXMLLoader(getClass().getResource("/Application/View/Reservation.fxml"));
+        FXMLLoader ReservationPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/Reservation.fxml"));
         Parent ReservationPane = ReservationPaneLoader.load();
         Scene ReservationScene = new Scene(ReservationPane,width,height);
         //endregion

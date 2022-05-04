@@ -1,4 +1,4 @@
-package Application;
+package Autocamper.Model;
 
 public enum ControllerNames {
     View,

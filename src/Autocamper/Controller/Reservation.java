@@ -1,4 +1,4 @@
-package Application.Controller;
+package Autocamper.Controller;
 
 import javafx.fxml.FXML;
 
