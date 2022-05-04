@@ -15,8 +15,7 @@ static Connection con;
     @FXML TextField Name;
     @FXML TextField Address;
     @FXML TextField Phone;
-    @FXML
-    Button bypassButton;
+    @FXML Button bypassButton;
 
     @FXML
     public void onBackClick(){
