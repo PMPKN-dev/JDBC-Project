@@ -2,6 +2,7 @@ package Autocamper.Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SQLHandler {
@@ -13,5 +14,15 @@ public class SQLHandler {
         p.setInt(4,0);
         p.executeUpdate();
         p.close();
+    }
+
+    public static int getPhoneNumber(Connection con, String Name) throws SQLException {
+        PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
+        p.setString(1,Name);
+        ResultSet rs = p.executeQuery();
+        rs.next();
+        int temp = rs.getInt(1);
+        p.close();
+        return temp;
     }
 }
