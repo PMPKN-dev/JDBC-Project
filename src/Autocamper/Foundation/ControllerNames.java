@@ -1,10 +1,11 @@
-package Application;
+package Autocamper.Foundation;
 
 public enum ControllerNames {
     View,
     Login,
     CreateUser,
-    Registration,
+    ReservationLoginPrompt,
+    Reservation,
     AdminLogin,
     AdminEdition
 }

@@ -1,16 +1,14 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.ControllerNames;
-import Application.DBCon;
+import Autocamper.Foundation.ControllerNames;
+import Autocamper.Foundation.DBCon;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class AdminEdition
 {
@@ -27,6 +25,11 @@ public class AdminEdition
     @FXML Text manualAddAddress;
     @FXML Text manualAddPhone;
     @FXML Text manualAddRentals;
+
+    static Connection con;
+    static PreparedStatement ps;
+    static CallableStatement cs;
+    static ResultSet rs;
 
     public void onManuallyAddClicked(){
         manualAddName.setOpacity(100);
@@ -55,7 +58,21 @@ public class AdminEdition
         DBCon.closeCon();
     }
 
-    public void onSelectCustomerDetailsClicked(){
+    public void onSelectCustomerDetailsClicked() throws SQLException {
+
+        con = DBCon.getCon();
+        ps = con.prepareStatement("SELECT * FROM tbl_Customer");
+        System.out.println(ps);
+        rs = ps.executeQuery();
+        rs.next();
+        System.out.println(rs);
+        textareaEditionView.setText(rs.getString(1));
+        //textareaEditionView.getText().equals(rs.getString(1));
+        ps.close();
+        con.close();
+
+
+
         textareaEditionView.setText(DBCon.claimCustomerDetails());
         //DBCon.claimCustomerDetails(); //null connection
     }

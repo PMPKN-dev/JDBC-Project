@@ -1,14 +1,12 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.ControllerNames;
+import Autocamper.Foundation.ControllerNames;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 
-import java.util.Locale;
 import java.util.Objects;
 
 public class AdminLogin {
@@ -26,11 +24,6 @@ public class AdminLogin {
         Main.changeScene(ControllerNames.View);
     }
 
-    public void checkLogin(){
-        DBcon.Connection();
-        //loginAsAdmin();
-
-    }
 
     public void loginAsAdmin() {
 
@@ -39,7 +32,7 @@ public class AdminLogin {
             public void handle(MouseEvent mouseEvent) {
                 String insertedUser = userTextfield.getText();
                 String insertedPass = passTextfield.getText();
-                if(Objects.equals(insertedUser, "management") && Objects.equals(insertedPass, "fabulous")){
+                if(Objects.equals(insertedUser, "sa") && Objects.equals(insertedPass, "12")){
                     adminResultView.setText("Login Successful. Press button to proceed");
                     proceedButton.setOpacity(100); //Makes button visible
                     proceedButton.setMouseTransparent(false); //Makes mouse able to interact with button

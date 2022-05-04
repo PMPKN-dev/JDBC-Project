@@ -1,13 +1,12 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.ControllerNames;
-import Application.DBCon;
+import Autocamper.Foundation.ControllerNames;
+import Autocamper.Foundation.DBCon;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
-
-import java.sql.DriverManager;
 
 import java.sql.Connection;
 
@@ -16,10 +15,11 @@ static Connection con;
     @FXML TextField Name;
     @FXML TextField Address;
     @FXML TextField Phone;
+    @FXML Button bypassButton;
 
     @FXML
     public void onBackClick(){
-        Main.changeScene(ControllerNames.Registration);
+        Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
     @FXML
     public void onCreateUserClick() throws SQLException {
@@ -33,6 +33,11 @@ static Connection con;
         p.executeUpdate();
         p.close();
         DBCon.closeCon();
+    }
+
+    @FXML
+    public void onBypassClick(){
+        Main.changeScene(ControllerNames.Reservation);
     }
 
 }

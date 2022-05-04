@@ -1,9 +1,9 @@
-package Application.Controller;
+package Autocamper.Controller;
 
-import Application.ControllerNames;
+import Autocamper.Foundation.ControllerNames;
 import javafx.fxml.FXML;
 
-public class Reservation {
+public class ReservationLoginPrompt {
 
     @FXML
     public void onCreateUserClick(){
