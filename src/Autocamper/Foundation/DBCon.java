@@ -1,4 +1,4 @@
-package Autocamper;
+package Autocamper.Foundation;
 
 import java.sql.*;
 

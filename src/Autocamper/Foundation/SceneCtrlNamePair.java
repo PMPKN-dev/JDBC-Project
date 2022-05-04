@@ -1,6 +1,6 @@
-package Autocamper.Model;
+package Autocamper.Foundation;
 
-import Autocamper.Model.ControllerNames;
+import Autocamper.Foundation.ControllerNames;
 import javafx.scene.Scene;
 
 public class SceneCtrlNamePair {

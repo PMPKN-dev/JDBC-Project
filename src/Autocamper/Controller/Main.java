@@ -1,7 +1,7 @@
 package Autocamper.Controller;
 
-import Autocamper.Model.SceneCtrlNamePair;
-import Autocamper.Model.ControllerNames;
+import Autocamper.Foundation.SceneCtrlNamePair;
+import Autocamper.Foundation.ControllerNames;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;

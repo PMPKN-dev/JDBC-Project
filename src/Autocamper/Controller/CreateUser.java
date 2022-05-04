@@ -1,7 +1,7 @@
 package Autocamper.Controller;
 
-import Autocamper.Model.ControllerNames;
-import Autocamper.DBCon;
+import Autocamper.Foundation.ControllerNames;
+import Autocamper.Foundation.DBCon;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

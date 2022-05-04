@@ -1,6 +1,6 @@
 package Autocamper.Controller;
 
-import Autocamper.Model.ControllerNames;
+import Autocamper.Foundation.ControllerNames;
 import javafx.fxml.FXML;
 
 public class View {
