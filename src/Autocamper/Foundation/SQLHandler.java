@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SQLHandler {
+public class SQLHandler{
 
     public static void insertCustomer(Connection con, String Name, String Address, int Phone) throws SQLException {
         PreparedStatement p = con.prepareStatement("insert into tbl_Customer values (?,?,?,?)");
@@ -25,5 +25,13 @@ public class SQLHandler {
         int temp = rs.getInt(1);
         p.close();
         return temp;
+    }
+
+    public static void updateUserPhoneNumber(Connection con, String Name,int PhoneNumber) throws SQLException {
+        PreparedStatement p = con.prepareStatement("UPDATE tbl_Customer SET PhoneNo = ? WHERE Name = ?");
+        p.setInt(1,PhoneNumber);
+        p.setString(2,Name);
+        p.executeUpdate();
+        p.close();
     }
 }
