@@ -4,7 +4,8 @@ GO
 CREATE PROCEDURE loginCreation(@user VARCHAR(50), @pass VARCHAR(50))
 	AS
 		BEGIN
-		CREATE LOGIN CamperAdmin WITH PASSWORD='fabulous';
+		CREATE LOGIN CamperAdmin WITH PASSWORD='GoodPassword';
 		CREATE USER Management FOR LOGIN CamperAdmin;
 		GRANT INSERT, SELECT, CONNECT, EXECUTE ON CamperDB TO Management;
 		END
+

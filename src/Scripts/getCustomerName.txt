@@ -1,7 +1,14 @@
-CREATE PROCEDURE getCustomerName @id int
+use CamperDB
+GO
+
+CREATE PROCEDURE getCustomerName (@id int)
 	AS
 		BEGIN
 		SELECT Name 
 		FROM tbl_Customer 
 		where CustomerID = @id;
 		END
+
+
+
+

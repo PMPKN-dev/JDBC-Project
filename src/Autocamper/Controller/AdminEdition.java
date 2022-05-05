@@ -2,8 +2,11 @@ package Autocamper.Controller;
 
 import Autocamper.Foundation.ControllerNames;
 import Autocamper.Foundation.DBCon;
+import Autocamper.Foundation.SQLHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -25,6 +28,7 @@ public class AdminEdition
     @FXML Text manualAddAddress;
     @FXML Text manualAddPhone;
     @FXML Text manualAddRentals;
+    @FXML TableView tableView;
 
     static Connection con;
     static PreparedStatement ps;
@@ -47,6 +51,7 @@ public class AdminEdition
 
     public void onEnterClicked() throws SQLException {
         Connection con = DBCon.getCon();
+        //SQLHandler.insertCustomer(0,textfieldEditionOne.getText(),textfieldEditionTwo.getText(),textfieldEditionThree.getText(),textfieldEditionFour.getText());
         PreparedStatement p = con.prepareStatement("insert into tbl_Customer values (?,?,?,?)");
         p.setString(1,textfieldEditionOne.getText());
         p.setString(2,textfieldEditionTwo.getText());
@@ -61,20 +66,13 @@ public class AdminEdition
     public void onSelectCustomerDetailsClicked() throws SQLException {
 
         con = DBCon.getCon();
-        ps = con.prepareStatement("SELECT * FROM tbl_Customer");
-        System.out.println(ps);
-        rs = ps.executeQuery();
-        rs.next();
-        System.out.println(rs);
-        textareaEditionView.setText(rs.getString(1));
-        //textareaEditionView.getText().equals(rs.getString(1));
-        ps.close();
-        con.close();
+        String chosenCustomer = textfieldEditionOne.getText();
+        //tableView.setItems(SQLHandler.selectCustomer(con,chosenCustomer));
+
+        //textareaEditionView.setText(SQLHandler.selectCustomer(con,chosenCustomer));
+        DBCon.closeCon();
 
 
-
-        textareaEditionView.setText(DBCon.claimCustomerDetails());
-        //DBCon.claimCustomerDetails(); //null connection
     }
     public void onCampersUsedClicked(){
 
@@ -82,5 +80,10 @@ public class AdminEdition
 
     public void onExitReturnStart(){
         Main.changeScene(ControllerNames.View);
+    }
+
+    @FXML
+    void tableView(ActionEvent event) {
+
     }
 }

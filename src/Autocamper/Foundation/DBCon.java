@@ -29,16 +29,4 @@ public class DBCon {
         }
     }
 
-    public static String claimCustomerDetails(){
-        int customerID = 0;
-        try{
-            cs = con.prepareCall("{CALL getCustomerDetails}"); //null connection TODO: Fix that
-            rs = cs.executeQuery();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

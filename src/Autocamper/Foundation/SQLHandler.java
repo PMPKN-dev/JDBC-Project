@@ -33,4 +33,13 @@ public class SQLHandler {
         p.executeUpdate();
         p.close();
     }
+    public static String selectCustomer(Connection con, String CustomerID) throws SQLException{
+        PreparedStatement p = con.prepareStatement("SELECT * FROM tbl_Customer WHERE CustomerID = ?");
+        p.setString(1,CustomerID);
+        ResultSet rs = p.executeQuery();
+        rs.next();
+        String temp = rs.getString(1);
+        p.close();
+        return temp;
+    }
 }
