@@ -16,6 +16,8 @@ public class Main extends Application {
     private static final int width = 600;
     private static final int height = 400;
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStageHolder = primaryStage;
