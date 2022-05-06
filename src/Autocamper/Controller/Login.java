@@ -1,23 +1,23 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.ControllerNames;
-import Autocamper.Foundation.DBCon;
-import Autocamper.Foundation.SQLHandler;
+import Autocamper.Foundation.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Login {
 
     public static int CustomerID;
+
     @FXML TextField Username;
     @FXML TextField PhoneNumber;
 
     public static SQLHandler instance;
 
     //a simple handler for the return button
+
     @FXML
     public void onBackClick(){
         Main.changeScene(ControllerNames.ReservationLoginPrompt);

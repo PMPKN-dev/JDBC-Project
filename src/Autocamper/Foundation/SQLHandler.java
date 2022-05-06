@@ -1,28 +1,26 @@
 package Autocamper.Foundation;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class SQLHandler {
+import java.sql.*;
+
+public class SQLHandler{
+
     /**
-     * Using a simple INSERT INTO SQL query, inserts a new record into the Customer table
-     * This method uses the following query: "insert into tbl_Customer values(Name, Address, Phone Number, Number of Rentals)"
+     * Using a simple INSERT INTO SQL query, inserts a new record into the Customer table.
+     * This method uses the following query: "insert into tbl_Customer values (Name,Address,Phone Number,Number of rentals)"
      *
-     * <p> Note that the number of rentals is hard-coded to zero as this is the creation of a new user, meaning they have not rented a camper before
+     * <p>Note that the number of rentals is hard-coded to zero as this is the creation of a new user, meaning they have not rented a camper before
      * @param con a connection to the database
      * @param Name the name of the customer to be added
      * @param Address the address of the customer to be added
-     * @param PhoneNo the phone number of the customer to be added
+     * @param Phone the phone number of the customer to be added
      * @throws SQLException SQLException
      */
-
-    public static void insertCustomer(Connection con, String Name, String Address, int PhoneNo) throws SQLException {
+    public static void insertCustomer(Connection con, String Name, String Address, int Phone) throws SQLException {
         PreparedStatement p = con.prepareStatement("insert into tbl_Customer values (?,?,?,?)");
         p.setString(1,Name);
         p.setString(2,Address);
-        p.setInt(3, PhoneNo);
+        p.setInt(3, Phone);
         p.setInt(4,0);
         p.executeUpdate();
         p.close();
@@ -41,6 +39,10 @@ public class SQLHandler {
     public static int getPhoneNumber(Connection con, String Name) throws SQLException {
         PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
         p.setString(1,Name);
+
+    public static int getPhoneNumber(Connection con, String Name) throws SQLException {
+        PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
+        p.setString(1, Name);
         ResultSet rs = p.executeQuery();
         rs.next();
         int temp = rs.getInt(1);

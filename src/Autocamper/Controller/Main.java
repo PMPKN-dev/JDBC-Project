@@ -1,7 +1,7 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.SceneCtrlNamePair;
-import Autocamper.Foundation.ControllerNames;
+
+import Autocamper.Foundation.*;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -15,8 +15,6 @@ public class Main extends Application {
     private static Stage primaryStageHolder = null;
     private static final int width = 600;
     private static final int height = 400;
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -69,6 +67,7 @@ public class Main extends Application {
         scenes.add(new SceneCtrlNamePair(ReservationScene,ControllerNames.Reservation));
         scenes.add(new SceneCtrlNamePair(AdminLoginScene,ControllerNames.AdminLogin));
         scenes.add(new SceneCtrlNamePair(AdminEditionScene,ControllerNames.AdminEdition));
+
         //endregion
 
         primaryStage.setTitle("View");
@@ -76,7 +75,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    //Changes the scene based on the name input
     /**
      * Changes scene based on the ControllerName input.
      *

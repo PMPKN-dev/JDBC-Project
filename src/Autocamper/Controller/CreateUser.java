@@ -1,15 +1,11 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.ControllerNames;
-import Autocamper.Foundation.DBCon;
-import Autocamper.Foundation.SQLHandler;
+
+import Autocamper.Foundation.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.*;
-
-import java.sql.Connection;
 
 public class CreateUser {
     @FXML TextField Name;
@@ -23,18 +19,20 @@ public class CreateUser {
         Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
 
-    //handler for creating a user, which uses the DBCon and the SQLHandler class as well as a workaround for the phone number
+    // handler for creating a user, which uses the DBCon and the SQLHandler class as well as a workaround for the phone number
     @FXML
     public void onCreateUserClick() throws SQLException {
         Connection con = DBCon.getCon();
-        int phoneNumber = (int) Double.parseDouble(Phone.getText()); //Using Double.parseDouble cause Java :)
-            //Integer.parseInt returns a hex number of sorts which is not useable as a human being
-            // while Double.parseDouble returns a nice decimal value
+        int phoneNumber = (int) Double.parseDouble(Phone.getText());//Using Double.parseDouble cause java is bad :)
+                            // Integer.parseInt returns a hex number of sorts which is not use-able as a human being
+                            // while Double.parseDouble returns a nice decimal value
+
         SQLHandler.insertCustomer(con,Name.getText(),Address.getText(),phoneNumber);
         DBCon.closeCon();
     }
 
-    //this is hidden
+
+    //this is totally hidden
     @FXML
     public void onBypassClick(){
         Main.changeScene(ControllerNames.Reservation);

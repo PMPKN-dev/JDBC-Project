@@ -1,10 +1,10 @@
 package Autocamper;
-import Autocamper.Foundation.DBCon;
-import Autocamper.Foundation.SQLHandler;
+
+import Autocamper.Foundation.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.sql.*;
-import java.sql.Connection;
+
 
 public class UnitTests {
     public static SQLHandler instance;
@@ -29,6 +29,7 @@ public class UnitTests {
         assertEquals(expected,actual);
     }
 
+
     @Test
     public void PhoneNumberUpdate() throws SQLException {
         Connection con = DBCon.getCon();
@@ -38,5 +39,4 @@ public class UnitTests {
         int actual = SQLHandler.getPhoneNumber(con,"jimmy");
         assertEquals(expected,actual);
     }
-
 }
