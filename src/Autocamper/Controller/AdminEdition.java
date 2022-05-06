@@ -35,6 +35,7 @@ public class AdminEdition
     static CallableStatement cs;
     static ResultSet rs;
 
+    //This is to have the Texts and Enter Button be invisible until they are needed
     public void onManuallyAddClicked(){
         manualAddName.setOpacity(100);
         manualAddName.setMouseTransparent(false);

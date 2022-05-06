@@ -47,15 +47,14 @@ public class SQLHandler{
     }
 
     /**
-     * <p>Explanation goes here</p>
-     * <p>2nd paragraph goes here if needed, otherwise delete this line</p>
+     * Using a SELECT query, finds the CustomerID based on the Customer Name and Phone Number and returns it. This method uses the following query:
+     * "select CustomerID from tbl_Customer where Name = Name and PhoneNo = Phone"
      * @param con a conneciton to the database
      * @param Name the customer's name
      * @param Phone the customer's phone number
      * @return
      * @throws SQLException SQLException
      */
-    //fixme add an explanation into the javadoc above as well as describe the return type
     public static int LoginVerification(Connection con, String Name, int Phone) throws SQLException {
         PreparedStatement p = con.prepareStatement("select CustomerID from tbl_Customer where Name = ? and PhoneNo = ?");
         p.setString(1, Name);
@@ -148,21 +147,11 @@ public class SQLHandler{
      * @param PhoneNumber the customer's Phone number
      * @throws SQLException SQLException
      */
-
     public static void updateUserPhoneNumber(Connection con, String Name,int PhoneNumber) throws SQLException {
         PreparedStatement p = con.prepareStatement("UPDATE tbl_Customer SET PhoneNo = ? WHERE Name = ?");
         p.setInt(1,PhoneNumber);
         p.setString(2,Name);
         p.executeUpdate();
         p.close();
-    }
-    public static String selectCustomer(Connection con, String CustomerID) throws SQLException{
-        PreparedStatement p = con.prepareStatement("SELECT * FROM tbl_Customer WHERE CustomerID = ?");
-        p.setString(1,CustomerID);
-        ResultSet rs = p.executeQuery();
-        rs.next();
-        String temp = rs.getString(1);
-        p.close();
-        return temp;
     }
 }
