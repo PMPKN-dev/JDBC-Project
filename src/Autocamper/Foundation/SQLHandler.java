@@ -41,7 +41,7 @@ public class SQLHandler{
         p.setString(1, Name);
         ResultSet rs = p.executeQuery();
         rs.next();
-        int temp = rs.getInt(1);
+        int temp = rs.getInt("PhoneNo");
         p.close();
         return temp;
     }

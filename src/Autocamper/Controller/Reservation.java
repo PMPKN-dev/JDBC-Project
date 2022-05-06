@@ -22,7 +22,7 @@ public class Reservation {
     @FXML Button createReservation;
 
     @FXML
-  private void ListViewFiller(ListView<String> ListView, String query) throws SQLException {
+    private void ListViewFiller(ListView<String> ListView, String query) throws SQLException {
         //in order to fill the listview with information about campers,
         // a method was created that you can pass queries to,
         //then it runs this query through a prepared statement and the resulting data is grabed by ResultSet seen below
@@ -42,8 +42,6 @@ public class Reservation {
         p.close();
 
     }
-  
-    }
 
     @FXML
     private void onCancelButtonClick(){
@@ -60,7 +58,7 @@ public class Reservation {
         //Have to clear the focus first as to not break the program.
         menuName.setText(basic.getText());
         camperList.getItems().clear();
-        ListViewfiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 1");
+        ListViewFiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 1");
     }
 
     /**
@@ -71,7 +69,7 @@ public class Reservation {
         camperList.getSelectionModel().clearSelection();
         menuName.setText(standard.getText());
         camperList.getItems().clear();
-        ListViewfiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 2");
+        ListViewFiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 2");
     }
 
     /**
