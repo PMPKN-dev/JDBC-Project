@@ -38,10 +38,6 @@ public class SQLHandler{
 
     public static int getPhoneNumber(Connection con, String Name) throws SQLException {
         PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
-        p.setString(1,Name);
-
-    public static int getPhoneNumber(Connection con, String Name) throws SQLException {
-        PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
         p.setString(1, Name);
         ResultSet rs = p.executeQuery();
         rs.next();
