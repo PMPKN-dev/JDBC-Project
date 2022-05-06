@@ -5,10 +5,12 @@ import java.sql.*;
 public class DBCon {
 
     static Connection con;
-    static PreparedStatement ps;
-    static CallableStatement cs;
-    static ResultSet rs;
 
+    /**
+     * this creates and returns a connection to the database, useful for controllers and the like.
+     * Use together with closeCon() to conveniently handle the connection from other classes
+     * @return a Connection to the database
+     */
     public static Connection getCon(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -20,6 +22,10 @@ public class DBCon {
         return con;
     }
 
+
+    /**
+     * closes the connection made by getCon()
+     */
     public static void closeCon(){
         try {
             con.close();

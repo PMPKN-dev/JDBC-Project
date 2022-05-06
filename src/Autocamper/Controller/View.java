@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 
 public class View {
 
+    //simple scene change handlers
     @FXML
     public void onMakeReservationClick(){
         Main.changeScene(ControllerNames.ReservationLoginPrompt);

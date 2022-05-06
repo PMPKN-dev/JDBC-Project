@@ -6,11 +6,8 @@ import static org.junit.Assert.*;
 import java.sql.*;
 import java.sql.Connection;
 
-public class CreateUserTest {
+public class UnitTests {
     public static SQLHandler instance;
-
-    private static PreparedStatement PS;
-    private static ResultSet RS;
 
     @org.junit.Before
     public void setUp() throws Exception {

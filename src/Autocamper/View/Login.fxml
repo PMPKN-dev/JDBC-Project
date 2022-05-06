@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Autocamper.Controller.Login">
+<AnchorPane prefHeight="164.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Autocamper.Controller.Login">
    <children>
-      <Button layoutX="200.0" layoutY="100.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
+      <TextField fx:id="PhoneNumber" layoutX="24.0" layoutY="64.0" promptText="Phone number" />
+      <Button layoutX="133.0" layoutY="99.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
+      <TextField fx:id="Username" layoutX="24.0" layoutY="24.0" promptText="Name" />
+      <Button layoutX="24.0" layoutY="99.0" mnemonicParsing="false" onAction="#onLogin" text="Login" />
    </children>
 </AnchorPane>

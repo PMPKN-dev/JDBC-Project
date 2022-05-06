@@ -12,16 +12,18 @@ import java.sql.*;
 import java.sql.Connection;
 
 public class CreateUser {
-static Connection con;
     @FXML TextField Name;
     @FXML TextField Address;
     @FXML TextField Phone;
     @FXML Button bypassButton;
 
+    // simple return button handler
     @FXML
     public void onBackClick(){
         Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
+
+    //handler for creating a user, which uses the DBCon and the SQLHandler class as well as a workaround for the phone number
     @FXML
     public void onCreateUserClick() throws SQLException {
         Connection con = DBCon.getCon();
@@ -32,6 +34,7 @@ static Connection con;
         DBCon.closeCon();
     }
 
+    //this is hidden
     @FXML
     public void onBypassClick(){
         Main.changeScene(ControllerNames.Reservation);

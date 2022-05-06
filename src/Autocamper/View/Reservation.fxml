@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Autocamper.Controller.Reservation">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Autocamper.Controller.Reservation">
     <children>
-        <Button layoutX="274.0" layoutY="174.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
-        <Text layoutX="213.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="That's all folks!" wrappingWidth="172.13671875" />
+        <Button layoutX="534.0" layoutY="360.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+        <ListView fx:id="camperList" layoutX="14.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" />
+        <MenuBar fx:id="menuQual" layoutX="14.0" layoutY="28.0">
+            <menus>
+                <Menu fx:id="menuName" mnemonicParsing="false" text="Camper Quality">
+                    <items>
+                        <MenuItem fx:id="basic" mnemonicParsing="false" onAction="#basicSelection" text="1. Basic" />
+                        <MenuItem fx:id="standard" mnemonicParsing="false" onAction="#standardSelection" text="2. Standard" />
+                        <MenuItem fx:id="luxury" mnemonicParsing="false" onAction="#luxurySelection" text="3. Luxury" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Text layoutX="226.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The selected camper will cost: " />
+        <Text fx:id="camperCost" layoutX="433.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="61.0" />
+        <Text layoutX="494.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to rent" />
+        <Text layoutX="226.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The deposit will be: " />
+        <Text fx:id="camperDeposit" layoutX="356.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="61.0" />
+        <Button layoutX="226.0" layoutY="223.0" mnemonicParsing="false" onAction="#createReservation" text="Create Reservation" />
+        <Text layoutX="226.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your discount is: " />
+        <Text fx:id="camperDiscount" layoutX="356.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="61.0" />
     </children>
 </AnchorPane>
