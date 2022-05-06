@@ -1,23 +1,11 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.DBCon;
-import Autocamper.Model.SQLHandler;
-import javafx.event.ActionEvent;
+import Autocamper.Foundation.*;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuBar;
-import javafx.scene.text.Text;
-import javafx.scene.control.Button;
-
-import java.awt.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import javafx.scene.text.*;
+import javafx.scene.control.*;
+import java.sql.*;
+import java.util.Scanner;
 
 public class Reservation {
     @FXML ListView camperList;
@@ -59,6 +47,10 @@ public class Reservation {
     }
 
 
+    /**
+     *
+     * @throws SQLException
+     */
     public void basicSelection() throws SQLException {
         //These three methods basically sorts the listview by price category, using the same filllistview method above to pass a query to and sort the list.
         camperList.getSelectionModel().clearSelection();
@@ -67,18 +59,33 @@ public class Reservation {
         camperList.getItems().clear();
         ListViewfiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 1");
     }
+
+    /**
+     *
+     * @throws SQLException
+     */
     public void standardSelection() throws SQLException {
         camperList.getSelectionModel().clearSelection();
         menuName.setText(standard.getText());
         camperList.getItems().clear();
         ListViewfiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 2");
     }
+
+    /**
+     *
+     * @throws SQLException
+     */
     public void luxurySelection() throws SQLException {
         camperList.getSelectionModel().clearSelection();
         menuName.setText(luxury.getText());
         camperList.getItems().clear();
         ListViewfiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper where PriceCatID = 3");
     }
+
+    /**
+     *
+     * @param ListView
+     */
     public void camperselectionListener(ListView<String> ListView){
         //In this method we create a listener to see which item on the listview has been clicked on, this helps us find the clicked items camperID, name and price category for future calculations.
         ListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -103,6 +110,11 @@ public class Reservation {
             camperDiscount.setText(String.valueOf(discount));
         });
     }
+
+    /**
+     *
+     * @throws SQLException
+     */
     public void createReservation() throws SQLException {
         Connection con = DBCon.getCon();
         //In order to create the correct reservation, we pull the customerID from the login class, then the first char in the selected string below and lastly, the text on the camperCost text which is based on the selected camper.
@@ -111,6 +123,7 @@ public class Reservation {
     }
 
 
+    // Runs the methods required to initialize the class
     public void initialize() throws SQLException {
         //In order to fill the listview, we call the method in initialize and pass a query to it that selects all the data needed from tbl_Camper.
         ListViewfiller(camperList,"select CamperID, CamperName, PriceCatID from tbl_Camper");

@@ -1,8 +1,6 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.ControllerNames;
-import Autocamper.Foundation.DBCon;
-import Autocamper.Model.SQLHandler;
+import Autocamper.Foundation.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -16,10 +14,14 @@ public class Login {
     @FXML TextField PhoneNumber;
 
     public static SQLHandler instance;
+
+    // a simple handler for the return button
     @FXML
     public void onBackClick(){
         Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
+
+    //fixme add comment
     @FXML
     public void onLogin() throws SQLException {
         Connection con = DBCon.getCon();
@@ -37,10 +39,9 @@ public class Login {
             System.out.println("Invalid information");
             e.printStackTrace();
         }
-
-
-
     }
+
+    //fixme why is this here if it's not in use?
     public int getCustomerID() {
         return CustomerID;
     }

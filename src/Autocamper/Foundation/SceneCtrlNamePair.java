@@ -1,8 +1,8 @@
 package Autocamper.Foundation;
 
-import Autocamper.Foundation.ControllerNames;
 import javafx.scene.Scene;
 
+//used for binding together a Controller name with a scene
 public class SceneCtrlNamePair {
 
     private Scene scene;

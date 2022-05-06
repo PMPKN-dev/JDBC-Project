@@ -1,7 +1,6 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.SceneCtrlNamePair;
-import Autocamper.Foundation.ControllerNames;
+import Autocamper.Foundation.*;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -22,6 +21,11 @@ public class Main extends Application {
         primaryStageHolder = primaryStage;
 
         //region Creating FXMLLoaders for the controllers
+        /*
+        this sets up the scenes by loading their files into a FXMLLoader, creating a Parent and making a scene out of it
+        we are using a uniform width and height by defining them above the class to prevent weird window scaling happening by
+        accident
+         */
         FXMLLoader CreateUserPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/CreateUser.fxml"));
         Parent CreateUserPane = CreateUserPaneLoader.load();
         Scene CreateUserScene = new Scene(CreateUserPane,width,height);
@@ -44,6 +48,9 @@ public class Main extends Application {
         //endregion
 
         //region adding scenes to scenes Arraylist
+        /*
+        this sets the created scenes into an arraylist for use in the changeScene() method
+         */
         scenes.add(new SceneCtrlNamePair(CreateUserScene, ControllerNames.CreateUser));
         scenes.add(new SceneCtrlNamePair(LoginScene, ControllerNames.Login));
         scenes.add(new SceneCtrlNamePair(RegistrationScene, ControllerNames.ReservationLoginPrompt));
@@ -56,7 +63,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    //Changes the scene based on the name input
+    /**
+     * Changes scene based on the ControllerName input.
+     *
+     * This method requires the setup of the scenes in advance, as well as adding them to an ArrayList of SceneCtrlNamePair named scenes so that they can later be loaded into the stage
+     * @param sceneName the name of the scene to be changed to
+     */
     public static void changeScene(ControllerNames sceneName){
         primaryStageHolder.setTitle(sceneName.toString());
 

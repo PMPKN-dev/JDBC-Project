@@ -1,15 +1,10 @@
 package Autocamper.Controller;
 
-import Autocamper.Foundation.ControllerNames;
-import Autocamper.Foundation.DBCon;
-import Autocamper.Foundation.SQLHandler;
+import Autocamper.Foundation.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.*;
-
-import java.sql.Connection;
 
 public class CreateUser {
     @FXML TextField Name;
@@ -17,11 +12,13 @@ public class CreateUser {
     @FXML TextField Phone;
     @FXML Button bypassButton;
 
+    // simple return button handler
     @FXML
     public void onBackClick(){
         Main.changeScene(ControllerNames.ReservationLoginPrompt);
     }
 
+    // handler for creating a user, which uses the DBCon and the SQLHandler class as well as a workaround for the phone number
     @FXML
     public void onCreateUserClick() throws SQLException {
         Connection con = DBCon.getCon();
@@ -32,6 +29,7 @@ public class CreateUser {
         DBCon.closeCon();
     }
 
+    //this is hidden, shh
     @FXML
     public void onBypassClick(){
         Main.changeScene(ControllerNames.Reservation);
