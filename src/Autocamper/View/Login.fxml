@@ -10,5 +10,5 @@
       <Button layoutX="133.0" layoutY="99.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
       <TextField fx:id="Username" layoutX="24.0" layoutY="24.0" promptText="Name" />
       <Button layoutX="24.0" layoutY="99.0" mnemonicParsing="false" onAction="#onLogin" text="Login" />
-   </children> 
+   </children>
 </AnchorPane>

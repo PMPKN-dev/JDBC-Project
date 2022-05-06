@@ -22,6 +22,7 @@ public class DBCon {
         return con;
     }
 
+
     /**
      * closes the connection made by getCon()
      */
@@ -33,4 +34,5 @@ public class DBCon {
             e.printStackTrace();
         }
     }
+
 }

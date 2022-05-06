@@ -1,0 +1,8 @@
+use CamperDB
+GO
+
+CREATE PROCEDURE getCustomerDetails
+	AS
+		BEGIN
+		SELECT * FROM tbl_Customer
+		END

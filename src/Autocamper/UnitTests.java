@@ -1,4 +1,5 @@
 package Autocamper;
+
 import Autocamper.Foundation.*;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -24,9 +25,11 @@ public class UnitTests {
         SQLHandler.insertCustomer(con,"jimmy","wallstreet",71706040);
 
         int expected = 71706040;
-        int actual = SQLHandler.getPhoneNumber(con,"jimmy");
+        int actual = SQLHandler.getPhoneNumber(con,"jimmy");;
         assertEquals(expected,actual);
     }
+
+
     @Test
     public void PhoneNumberUpdate() throws SQLException {
         Connection con = DBCon.getCon();
@@ -36,10 +39,4 @@ public class UnitTests {
         int actual = SQLHandler.getPhoneNumber(con,"jimmy");
         assertEquals(expected,actual);
     }
-
-
-
-
-
-
 }

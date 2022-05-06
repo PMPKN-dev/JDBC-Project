@@ -1,5 +1,6 @@
 package Autocamper.Controller;
 
+
 import Autocamper.Foundation.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -25,11 +26,13 @@ public class CreateUser {
         int phoneNumber = (int) Double.parseDouble(Phone.getText());//Using Double.parseDouble cause java is bad :)
                             // Integer.parseInt returns a hex number of sorts which is not use-able as a human being
                             // while Double.parseDouble returns a nice decimal value
+
         SQLHandler.insertCustomer(con,Name.getText(),Address.getText(),phoneNumber);
         DBCon.closeCon();
     }
 
-    //this is hidden, shh
+
+    //this is totally hidden
     @FXML
     public void onBypassClick(){
         Main.changeScene(ControllerNames.Reservation);

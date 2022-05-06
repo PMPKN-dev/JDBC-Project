@@ -1,5 +1,6 @@
 package Autocamper.Foundation;
 
+
 import java.sql.*;
 
 public class SQLHandler{
@@ -34,6 +35,11 @@ public class SQLHandler{
      * @return the customer's phone number
      * @throws SQLException SQLException
      */
+
+    public static int getPhoneNumber(Connection con, String Name) throws SQLException {
+        PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
+        p.setString(1,Name);
+
     public static int getPhoneNumber(Connection con, String Name) throws SQLException {
         PreparedStatement p = con.prepareStatement("SELECT PhoneNo from tbl_Customer where Name=?");
         p.setString(1, Name);
@@ -146,11 +152,21 @@ public class SQLHandler{
      * @param PhoneNumber the customer's Phone number
      * @throws SQLException SQLException
      */
+
     public static void updateUserPhoneNumber(Connection con, String Name,int PhoneNumber) throws SQLException {
         PreparedStatement p = con.prepareStatement("UPDATE tbl_Customer SET PhoneNo = ? WHERE Name = ?");
         p.setInt(1,PhoneNumber);
         p.setString(2,Name);
         p.executeUpdate();
         p.close();
+    }
+    public static String selectCustomer(Connection con, String CustomerID) throws SQLException{
+        PreparedStatement p = con.prepareStatement("SELECT * FROM tbl_Customer WHERE CustomerID = ?");
+        p.setString(1,CustomerID);
+        ResultSet rs = p.executeQuery();
+        rs.next();
+        String temp = rs.getString(1);
+        p.close();
+        return temp;
     }
 }

@@ -6,5 +6,7 @@ public enum ControllerNames {
     Login,
     CreateUser,
     ReservationLoginPrompt,
-    Reservation
+    Reservation,
+    AdminLogin,
+    AdminEdition
 }

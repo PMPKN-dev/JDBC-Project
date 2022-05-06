@@ -1,5 +1,6 @@
 package Autocamper.Controller;
 
+
 import Autocamper.Foundation.*;
 import javafx.application.*;
 import javafx.fxml.*;
@@ -17,8 +18,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         primaryStageHolder = primaryStage;
+        Application.setUserAgentStylesheet(getClass().getResource("/Autocamper/View/Style.css").toExternalForm());
 
         //region Creating FXMLLoaders for the controllers
         /*
@@ -45,6 +46,14 @@ public class Main extends Application {
         FXMLLoader ReservationPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/Reservation.fxml"));
         Parent ReservationPane = ReservationPaneLoader.load();
         Scene ReservationScene = new Scene(ReservationPane,width,height);
+
+        FXMLLoader AdminLoginPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/AdminLogin.fxml"));
+        Parent AdminLoginPane = AdminLoginPaneLoader.load();
+        Scene AdminLoginScene = new Scene(AdminLoginPane,width,height);
+
+        FXMLLoader AdminEditionPaneLoader = new FXMLLoader(getClass().getResource("/Autocamper/View/AdminEdition.fxml"));
+        Parent AdminEditionPane = AdminEditionPaneLoader.load();
+        Scene AdminEditionScene = new Scene(AdminEditionPane,width,height);
         //endregion
 
         //region adding scenes to scenes Arraylist
@@ -56,6 +65,9 @@ public class Main extends Application {
         scenes.add(new SceneCtrlNamePair(RegistrationScene, ControllerNames.ReservationLoginPrompt));
         scenes.add(new SceneCtrlNamePair(viewScene, ControllerNames.View));
         scenes.add(new SceneCtrlNamePair(ReservationScene,ControllerNames.Reservation));
+        scenes.add(new SceneCtrlNamePair(AdminLoginScene,ControllerNames.AdminLogin));
+        scenes.add(new SceneCtrlNamePair(AdminEditionScene,ControllerNames.AdminEdition));
+
         //endregion
 
         primaryStage.setTitle("View");
