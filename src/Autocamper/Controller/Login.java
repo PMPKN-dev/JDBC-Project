@@ -42,7 +42,6 @@ public class Login {
             e.printStackTrace();
         }
 
-        //fixme why is this here
         /*
         public int getCustomerID(){
             return CustomerID;
